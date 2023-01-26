@@ -1,0 +1,13 @@
+.loader {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .loader {
+    height: 650px;
+  }
+}
