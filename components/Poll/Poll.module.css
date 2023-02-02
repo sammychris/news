@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: #eee;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.optionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 15px auto;
+}
+
+.optionRow {
+  display: flex;
+  width: 300px;
+  border: 2px solid #cecece;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.option {
+  background-color: #e6e6e6;
+  border: 2px solid #cecece;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-right: 30px;
+}
+
+.optionRow:hover {
+  border-color: #6acbdc;
+}
+
+.optionRow:hover .option {
+  border-color: #6acbdc;
+}
+
+.option.selected {
+  border-color: #0077b5;
+  background-color: #0077b5;
+}
+
+.optionText {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 20rem;
+  font-size: 1.2rem;
+}
+
+.button {
+  background-color: lightgray;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
