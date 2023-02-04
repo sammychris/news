@@ -52,7 +52,7 @@ export const MobileMenu: FunctionComponent<Props> = ({
       }}
     >
       <header className={`${styles.col} ${styles.topHeaderMobile}`}>
-        <div className={`${styles.row}`}>
+        {/* <div className={`${styles.row}`}>
           <Image src={URL} alt="imPowered Logo" width={90} height={90} />
           <div
             onClick={(e) => toggleMenu(!openState)}
@@ -62,8 +62,8 @@ export const MobileMenu: FunctionComponent<Props> = ({
               <FontAwesomeIcon icon={faArrowRightFromBracket} />
             </div>
           </div>
-        </div>
-        <Underline width={40} />
+        </div> */}
+        {/* <Underline width={40} /> */}
       </header>
       <div
         style={{
@@ -73,9 +73,9 @@ export const MobileMenu: FunctionComponent<Props> = ({
         className={`${styles.col} ${styles.menu} `}
       >
         <ul className={`${styles.col}`}>
-          <li className={`${styles.menuItem} ${styles.menuTitle}`}>
+          {/* <li className={`${styles.menuItem} ${styles.menuTitle}`}>
             <p>Menu</p>
-          </li>
+          </li> */}
           <li className={`${styles.col}`}>
             <Link
               onClick={(e) => toggleMenu(!openState)}

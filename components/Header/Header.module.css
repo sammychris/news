@@ -1,30 +1,35 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 
-.headerBackground {
-  background: linear-gradient(89.82deg, #07006b 0%, #080078 100%);
-  z-index: 2;
+.container {
+  background: #000;
+  /* z-index: 2; */
   position: relative;
 }
 .headerContent {
-  max-width: 1366px;
-  width: 90%;
+  max-width: 1337px;
+  width: 100%;
   margin: 0 auto;
-  height: 100px;
   display: flex;
   justify-content: space-between;
+  height: 150px;
   align-items: center;
 }
 .logoContainer {
-  width: 28%;
-  margin-left: 32px;
-  height: 27px;
+  width: 25%;
 }
-.logoContainer img {
-  height: 27px;
-  width: 150px;
+
+.navContainer {
+  width: 75%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 99px;
+  position: relative;
 }
 .searchSection {
-  width: 40%;
+  width: 30%;
+  display: flex;
+  align-items: center;
 }
 .searchContainer {
   display: flex;
@@ -34,8 +39,12 @@
   max-width: 396px;
   width: 100%;
   border-radius: 4px;
-  color: #333;
-  background: #fff;
+  color: #fff;
+  border: 1px solid #ffffff;
+  border-radius: 40px;
+  background-color: #000;
+  padding: 2px 10px;
+  margin-right: 10px;
 }
 .searchContainer input {
   width: 90%;
@@ -45,21 +54,25 @@
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  color: #333;
-  background: rgba(255, 255, 255, 0.97);
+  color: #fff;
+  background: #000;
 }
 .searchContainer input:focus {
   outline: none;
   border: none;
 }
-.iconsContainer {
-  width: 17%;
-  height: 30px;
-  display: flex;
-  justify-content: space-between;
-  margin-right: 99px;
-  position: relative;
+
+.shopLink {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  border: 1px solid #ebfe00;
+  border-radius: 40px;
+  color: #ebfe00;
+  padding: 10px 20px;
 }
+
 .userContainer {
   position: absolute;
   right: -84px;
@@ -69,44 +82,24 @@
   position: relative;
   left: 4px;
 }
-.navContainer {
-  width: 100%;
-  border-bottom: 2px solid #e8e8e8;
-  background-color: #fff;
-  position: relative;
-}
-.navContent {
-  width: 400px;
-  margin: 0 auto;
-  height: 44px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .tab {
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  color: #363839;
-  text-decoration: none;
-  padding-bottom: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 .tabActive {
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  color: #363839;
-  text-decoration: none;
-  padding-top: 9px;
-  padding-bottom: 7px;
   font-weight: 600;
-  border-bottom: 4px solid #ff017b;
-  padding-left: 15px;
-  padding-right: 15px;
+  font-size: 18px;
+  color: #fff;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .body {
@@ -125,13 +118,14 @@
 .mobileToggle {
   display: none; /* hide on desktop */
   position: absolute; /* position it on the top right corner */
-  left: 15px;
+  right: 15px;
   top: 15px;
   font-size: 24px; /* icon size */
   color: #fff; /* color of the icon */
   cursor: pointer; /* mouse pointer when hover on it */
   z-index: 1; /* make sure it's on top of other elements */
   transition: all 0.3s ease-in-out; /* transition effect */
+  z-index: 2;
 }
 
 .mobile {
@@ -139,10 +133,37 @@
   position: relative;
 }
 
+@media only screen and (max-width: 980px) {
+  .headerContent {
+    width: 90%;
+  }
+  .tab {
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .tabActive {
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .logoContainer {
+    width: 35%;
+  }
+
+  .navContainer {
+    width: 30%;
+  }
+  .searchSection {
+    width: 35%;
+  }
+}
+
 @media only screen and (max-width: 720px) {
   .mobileToggle {
     display: block; /* show on mobile */
-    top: 36px;
+    top: 50px;
   }
   .navContent {
     display: none; /* hide on mobile */
@@ -154,7 +175,7 @@
     overflow: hidden;
   }
   .overlay {
-    background: rgb(220 220 220 / 74%);
+    background: #53544c;
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -163,23 +184,31 @@
     left: 0;
   }
 
+  .overlayImg {
+    position: absolute;
+    right: 0;
+    top: 150px;
+    z-index: 4;
+    width: 80px;
+  }
+
   .searchContainer {
     width: 100%;
   }
-  .logoContainer {
+  /* .logoContainer {
     display: none;
-  }
+  } */
   .iconsContainer {
     display: none;
   }
   .searchSection {
-    display: flex;
+    display: none;
     width: 100%;
     justify-content: center;
   }
   .headerContent {
-    justify-content: center;
-    padding-left: 30px;
+    /* justify-content: center;
+    padding-left: 30px; */
   }
 }
 

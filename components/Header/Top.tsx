@@ -19,7 +19,6 @@ const Top = () => {
           <FaSearch size={16} />
         </form>
       </div>
-
       <div className={styles.logoContainer}>
         <img src={"Logo"} alt="logo" />
       </div>
