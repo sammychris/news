@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from "react";
 import { useState } from "react";
 
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 type Props = {
   state: boolean;
@@ -24,6 +25,7 @@ export const Layout: FunctionComponent<Props> = (props) => {
                 Bigly 
             </footer> */}
       </main>
+      <Footer />
     </div>
   );
 };
