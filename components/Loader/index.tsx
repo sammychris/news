@@ -4,7 +4,7 @@ import styles from "./Loader.module.css";
 const Loader = () => {
   return (
     <div className={styles.loader}>
-      <BeatLoader color="#33509b" loading={true} />
+      <BeatLoader color="#EBFE00" loading={true} />
     </div>
   );
 };
