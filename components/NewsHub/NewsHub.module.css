@@ -1,0 +1,40 @@
+.newsHub {
+  width: 100%;
+}
+
+.newsHub h2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  letter-spacing: 0.09em;
+
+  color: #cfd586;
+}
+
+.newsHub .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.collections {
+  width: 50%;
+}
+
+@media only screen and (max-width: 980px) {
+  .collections {
+    width: 100%;
+  }
+  .newsHub {
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .newsHub .container {
+    display: block;
+  }
+}
