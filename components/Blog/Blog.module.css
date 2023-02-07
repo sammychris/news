@@ -1,0 +1,234 @@
+.blog {
+  max-width: 1147px;
+  width: 90%;
+  display: flex;
+  margin: 100px auto;
+  justify-content: space-between;
+}
+
+.leftSide {
+  width: 50%;
+}
+
+.leftCentered {
+  width: 505px;
+  margin: auto;
+}
+
+.rightSide {
+  width: 50%;
+}
+
+.date {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.09em;
+  color: #ffffff;
+}
+
+.title {
+  height: 240px;
+  font-family: "League Spartan";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 44px;
+  letter-spacing: 0.09em;
+  color: #ffffff;
+}
+
+.author {
+  color: #cfd586;
+}
+
+.quote {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 28px;
+  letter-spacing: 0.09em;
+  color: #ffffff;
+  padding: 60px 0;
+}
+
+.readMore {
+  height: 74px;
+  width: 281px;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 19px;
+  text-align: center;
+  background: #000;
+  color: #ebfe00;
+  border: 1px solid #ebfe00;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+}
+
+.pad {
+  width: 40px;
+  height: 76px;
+  background: #ebfe00;
+  margin-top: 10px;
+}
+.paragraph {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.09em;
+  margin-bottom: 70px;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.tweeterFeeds {
+  width: 60%;
+  margin: auto;
+}
+
+.video {
+  width: 100%;
+  height: 550px;
+}
+
+.container {
+}
+
+.breakingNews {
+  width: 475px;
+}
+.breakingNews h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.09em;
+  color: #ffffff;
+  width: 450px;
+  margin-bottom: 20px;
+}
+
+.breakingNews img {
+  /* height: 422px;
+    width: 100%; */
+}
+
+.breakingNews p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.09em;
+  color: #ffffff;
+  width: 450px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background: #0d0453;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.breakingNews p span {
+  display: block;
+}
+
+.viewMoreNews {
+  border: 1px solid #ebfe00;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  text-align: center;
+  letter-spacing: 0.09em;
+  background-color: black;
+  color: #ebfe00;
+  height: 74px;
+  width: 464px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.mostPopular {
+  width: 555px;
+  padding: 32px 23px;
+  background: #454b1b;
+  border-radius: 10px;
+}
+
+.mostPopular h2 {
+  width: 203px;
+  height: 89px;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 40px;
+  letter-spacing: 0.09em;
+  color: #bf9026;
+}
+
+.topNews h2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 48px;
+  letter-spacing: 0.09em;
+  color: #cfd586;
+}
+
+@media only screen and (max-width: 980px) {
+  .blog {
+    display: block;
+  }
+  .leftSide {
+    width: 100%;
+  }
+
+  .rightSide img {
+    width: 100%;
+    height: auto;
+  }
+  .rightSide {
+    width: 100%;
+    display: block;
+    padding-top: 100px;
+  }
+
+  .leftCentered {
+    width: 100%;
+    margin: auto;
+  }
+  .tweeterFeeds {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .tweeterFeeds {
+    display: block;
+    width: 80%;
+    margin: auto;
+  }
+
+  .video {
+    width: 100%;
+    height: 400px;
+  }
+}
