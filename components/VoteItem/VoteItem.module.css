@@ -1,0 +1,80 @@
+.voteOption {
+  border: 1px solid #c5c5c5;
+  position: relative;
+  cursor: pointer;
+  padding: 13px;
+  max-width: 465px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.voteOptionRow {
+  display: flex;
+  align-items: center;
+}
+
+.voteOptionBox {
+  border: 1px solid #cecece;
+  margin-right: 30px;
+  display: flex;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.voteOptionBox input {
+  width: 20px;
+  height: 20px;
+}
+
+.voteOptionSeperator {
+  height: 10px;
+  max-width: 442px;
+  width: 100%;
+  background: #eaeaea;
+  border-radius: 40px;
+}
+
+.voteOptionPadding {
+  height: 36px;
+  width: 71px;
+  background: #eaeaea;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.voteOption:hover {
+  border: 1px solid #454b1b;
+}
+
+.voteOptionRow:hover {
+  border-color: #6acbdc;
+}
+
+.voteOption:hover .voteOptionBox {
+  border-color: #454b1b;
+}
+.voteOption:hover .voteOptionPadding {
+  background-color: #606252;
+}
+.voteOption:hover .voteOptionSeperator {
+  background-color: #606252;
+}
+
+.voteOptionBox.selected {
+  border-color: #0077b5;
+  background-color: #0077b5;
+}
+
+.voteOptionText {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+
+  letter-spacing: 0.09em;
+
+  color: #000000;
+}
