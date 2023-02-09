@@ -2,60 +2,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-  background: #eee;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #c5c5c5;
+  border-radius: 40px;
+  margin: 100px auto;
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+
+  letter-spacing: 0.09em;
+
+  color: #454b1b;
 }
 
-.optionContainer {
+.voteContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 15px auto;
-}
-
-.optionRow {
-  display: flex;
-  width: 300px;
-  border: 2px solid #cecece;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.option {
-  background-color: #e6e6e6;
-  border: 2px solid #cecece;
-  border-radius: 50%;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  margin-right: 30px;
-}
-
-.optionRow:hover {
-  border-color: #6acbdc;
-}
-
-.optionRow:hover .option {
-  border-color: #6acbdc;
-}
-
-.option.selected {
-  border-color: #0077b5;
-  background-color: #0077b5;
-}
-
-.optionText {
-  color: #333;
-  font-size: 18px;
-  font-weight: bold;
+  margin: auto;
 }
 
 .form {

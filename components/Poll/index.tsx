@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Poll.module.css";
-import { imPoweredRequest } from "../../lib/request";
+import { imPoweredRequest } from "../../utils/api-request";
+import VoteItem from "../VoteItem";
 
 interface Props {
   title: string;
@@ -73,21 +74,9 @@ const Poll: React.FC<Props> = ({
     <div className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
       {!showForm ? (
-        <div className={styles.optionContainer}>
-          <div
-            className={styles.optionRow}
-            onClick={() => handleVote(option_one)}
-          >
-            <div className={styles.option}></div>
-            <div className={styles.optionText}>{option_one}</div>
-          </div>
-          <div
-            className={styles.optionRow}
-            onClick={() => handleVote(option_two)}
-          >
-            <div className={styles.option}></div>
-            <div className={styles.optionText}>{option_two}</div>
-          </div>
+        <div className={styles.voteContainer}>
+          <VoteItem option={option_one} handleVote={handleVote} />
+          <VoteItem option={option_two} handleVote={handleVote} />
         </div>
       ) : (
         <form className={styles.form} onSubmit={handleSubmit}>
