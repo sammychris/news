@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./SmallNewsCard.module.css";
 import Link from "next/link";
 import VideoThumbnail from "../VideoThumbnail";
+import Image from "next/image";
+import { shortenText } from "../../utils/shorten-text";
 
 interface Props {
   link: string;
@@ -16,21 +18,26 @@ const SmallNewsCard: React.FC<Props> = ({ link, title, image, video }) => {
       <div className={styles.media}>
         <Link href={link} title={title}>
           {image ? (
-            <img src={image} alt={title} loading="lazy" />
+            <Image width={104} height={104} src={image} alt={""} />
           ) : video ? (
-            <VideoThumbnail videoId={video} title={title} />
+            <VideoThumbnail videoId={video} title={""} />
           ) : (
-            <img
-              src="/images/news-placeholder.png"
-              alt={title}
-              loading="lazy"
+            <Image
+              width={104}
+              height={104}
+              src={"/images/news-placeholder.png"}
+              alt={""}
             />
           )}
         </Link>
       </div>
       <div className={styles.content}>
-        <h4>
-          <Link href={link}>{title}</Link>
+        <h4 className={styles.title}>
+          <Link href={link}>{shortenText(title, 100)}</Link>
+        </h4>
+        <h4 className={styles.info}>
+          <span className={styles.author}>Samuel Christopher</span>
+          <span className={styles.date}> / JAN 20</span>
         </h4>
       </div>
     </article>
