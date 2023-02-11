@@ -49,8 +49,6 @@
 .mainContainer {
   background-color: var(--lightBackground);
   min-height: 100vh;
-  /* overflow-x: hidden;
-  overflow-y: scroll; */
   width: 80%;
 }
 .mainContainer {
@@ -63,17 +61,16 @@
 .sideBar {
   min-height: 100vh;
   height: 100%;
-  background: #fff !important;
+  background: #53544c !important;
   transition: margin-left 450ms;
   will-change: margin-left;
   margin-left: 0px;
-  /* display: none; */
   position: relative;
   transition: all 0.3s ease;
   width: 20%;
 }
 .menuItem {
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   width: 100%;
   border-left: 4px solid transparent;
   justify-content: flex-start;
@@ -164,19 +161,18 @@
 }
 .menuItem span,
 .menuItem i {
-  color: #333;
-  font-size: 18px;
   font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  color: #fff;
   margin-left: 5px;
 }
 .menuItem .active,
 .menuItem i {
-  color: #333;
-  border-bottom: 3px solid #ff017b;
-  font-weight: 600;
-  font-size: 18px;
-  font-family: "Poppins";
+  color: #ebfe00;
 }
+
 .topHeaderMobile > div {
   width: 100%;
   padding: 0.5rem 2rem;
