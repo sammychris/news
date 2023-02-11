@@ -19,19 +19,20 @@ type PostProps = {
 
 interface Props {
   posts: Array<PostProps>;
-  title: string;
+  // title: string;
+  // style: React.CSSProperties;
+  styleType: string;
 }
 
-const SmallNewsCardList: React.FC<Props> = ({ posts, title }) => {
-  const TITTLE = title?.toUpperCase();
+const SmallNewsCardList: React.FC<Props> = ({ posts, styleType }) => {
+  // const TITTLE = title?.toUpperCase();
   return (
     <div className={styles.collections}>
-      <h2>{title}</h2>
       {posts?.map((post: PostProps) => {
         let img_header = "";
         let vid_header = "";
 
-        if (post?.collection !== TITTLE) return "";
+        // if (post?.collection !== TITTLE) return "";
 
         post?.sections?.forEach((section: SectionProps) => {
           if (section.type === "IMAGE" && img_header === "") {
@@ -45,15 +46,24 @@ const SmallNewsCardList: React.FC<Props> = ({ posts, title }) => {
 
         const title = post?.title?.trim() || post.sub_title;
         return (
-          <SmallNewsCard
-            image={img_header}
-            link={`/${post.collection?.toLowerCase()}/${post.id}/${title
-              ?.replace(/\s/g, "-")
-              .toLowerCase()}`}
-            title={title}
-            video={vid_header}
-            key={post.id}
-          />
+          <>
+            <SmallNewsCard
+              image={img_header}
+              link={`/${post.collection?.toLowerCase()}/${post.id}/${title
+                ?.replace(/\s/g, "-")
+                .toLowerCase()}`}
+              title={title}
+              video={vid_header}
+              key={post.id}
+            />
+            {post !== posts[posts.length - 1] ? (
+              <div
+                className={styleType ? styles.popularLine : styles.line}
+              ></div>
+            ) : (
+              ""
+            )}
+          </>
         );
       })}
     </div>
