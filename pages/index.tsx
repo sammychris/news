@@ -1,10 +1,15 @@
 import styles from "@/styles/Home.module.css";
-import NewsCardList from "@/components/NewsCardList";
 import { GetServerSideProps } from "next";
-import { imPoweredRequest } from "../lib/request";
+import { imPoweredRequest } from "../utils/api-request";
 import { Timeline, Tweet } from "react-twitter-widgets";
 import SmallNewsCardList from "@/components/SmallNewsCardList";
 import Loader from "@/components/Loader";
+import Image from "next/image";
+import SignUpForm from "@/components/SignUpForm";
+import NewsHub from "@/components/NewsHub";
+import ViewMoreButton from "@/components/ViewMoreButton";
+import Ads from "@/components/Ads";
+import Link from "next/link";
 
 type SectionProps = {
   type: string;
@@ -33,17 +38,60 @@ interface Props {
 }
 
 const Home: React.FC<Props> = (props) => {
-  const posts = props?.posts?.slice(0, 4);
-  const posts2 = props?.posts?.slice(4, 8);
+  const posts = props?.posts;
+  const breakingNews = posts?.slice(0, 1)[0];
+  const topNews = posts?.slice(0, 4);
+  const mostPopular = posts?.slice(4, 8);
+  const newsAnalysis = posts?.slice(0, 6);
 
-  if (!props?.posts.length) return <Loader />;
+  let breakingNewsImg = "";
+  let breakingnNewsQuote = "";
+  breakingNews?.sections.forEach((section) => {
+    if (section.type === "IMAGE") breakingNewsImg = section.image;
+    if (section.type === "QUOTE") breakingnNewsQuote = section.text;
+  });
+  if (!posts.length) return <Loader />;
   return (
     <>
       <div className={styles.container}>
         <div className={styles.leftSide}>
-          <NewsCardList posts={posts} />
+          {/* <NewsCardList posts={posts} /> */}
+          <Link
+            href={`/${breakingNews?.collection?.toLowerCase()}/${
+              breakingNews?.id
+            }/${breakingNews?.title?.replace(/\s/g, "-").toLowerCase()}`}
+          >
+            <div className={styles.breakingNews}>
+              <h1>{breakingNews?.title}</h1>
+              <Image
+                width={475}
+                height={422}
+                src={breakingNewsImg || "/images/news-placeholder.png"}
+                alt=""
+              />
+              <p>
+                {breakingnNewsQuote ||
+                  `"As the saying goes personnel is policy," Trump continued, "and at the end of the day, if we have pink-haired communists teaching our kids, we have a major problem."
+`}
+                <span>
+                  {`${breakingNews?.author} / ${breakingNews?.published_date}`}
+                </span>
+              </p>
+              <div className={styles.line} style={{ marginTop: 40 }}></div>
+            </div>
+          </Link>
         </div>
         <div className={styles.rightSide}>
+          <div className={styles.topNews}>
+            <h2>TOP NEWS</h2>
+            <SmallNewsCardList posts={topNews} styleType="" />
+            <div className={styles.line}></div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.container}>
+        <div className={styles.leftSide}>
           <div className={styles.tweeterFeeds}>
             <Tweet tweetId="841418541026877441" />
             <Timeline
@@ -57,13 +105,31 @@ const Home: React.FC<Props> = (props) => {
             />
           </div>
         </div>
+        <div className={styles.rightSide}>
+          <Ads posts={mostPopular} />
+        </div>
       </div>
-      <div className={styles.divider}></div>
+
+      <div className={styles.containerLine}></div>
+
       <div className={styles.container}>
-        <SmallNewsCardList posts={posts2} title="Trending" />
-        <SmallNewsCardList posts={posts2} title="Politics" />
+        <NewsHub title="News Analysis" posts={newsAnalysis} />
       </div>
-      <div className={styles.divider}></div>
+      <div className={styles.container} style={{ marginTop: 35 }}>
+        <ViewMoreButton title="View more in News Analysis" />
+      </div>
+
+      <div className={styles.containerLine}></div>
+
+      <div className={styles.container} style={{ alignItems: "center" }}>
+        <div className={styles.mostPopular}>
+          <h2>MOST POPULAR</h2>
+          <SmallNewsCardList posts={mostPopular} styleType="popular" />
+        </div>
+        <div>
+          <SignUpForm />
+        </div>
+      </div>
     </>
   );
 };

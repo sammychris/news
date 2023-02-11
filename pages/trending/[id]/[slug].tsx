@@ -1,8 +1,12 @@
 import styles from "@/styles/Home.module.css";
 import Blog from "../../../components/Blog";
 import { GetServerSideProps } from "next";
-import { imPoweredRequest } from "../../../lib/request";
+import { imPoweredRequest } from "../../../utils/api-request";
 import Loader from "@/components/Loader";
+import NewsHub from "@/components/NewsHub";
+import ViewMoreButton from "@/components/ViewMoreButton";
+import SmallNewsCardList from "@/components/SmallNewsCardList";
+import Ads from "@/components/Ads";
 
 type SectionProps = {
   type: string;
@@ -13,6 +17,7 @@ type SectionProps = {
   title: string;
   option_one: string;
   option_two: string;
+  quote: string;
 };
 
 type PostProps = {
@@ -27,6 +32,7 @@ type PostProps = {
 
 interface Props {
   post: PostProps;
+  posts: Array<PostProps>;
 }
 
 const Index: React.FC<Props> = (props) => {
@@ -34,20 +40,39 @@ const Index: React.FC<Props> = (props) => {
   const { title, author, collection, published_date, sections, id } =
     props.post;
 
+  const posts = props?.posts;
+  const mostPopular = posts?.slice(0, 4);
+  const relatedNews = posts?.slice(0, 6);
   return (
     <>
+      <Blog
+        title={title}
+        author={author}
+        date={published_date}
+        sections={sections}
+        collection={collection}
+        id={id}
+      />
+
+      <div className={styles.containerLine}></div>
+
       <div className={styles.container}>
-        <div className={styles.leftSide}>
-          <Blog
-            title={title}
-            author={author}
-            date={published_date}
-            sections={sections}
-            collection={collection}
-            id={id}
-          />
+        <NewsHub title="Related News" posts={relatedNews} />
+      </div>
+      <div className={styles.container}>
+        <ViewMoreButton title="View more in Related News" />
+      </div>
+
+      <div className={styles.containerLine}></div>
+
+      <div className={styles.container} style={{ alignItems: "center" }}>
+        <div className={styles.mostPopular}>
+          <h2>MOST POPULAR</h2>
+          <SmallNewsCardList posts={mostPopular} styleType="popular" />
         </div>
-        <div className={styles.rightSide}></div>
+        <div>
+          <Ads posts={mostPopular} />
+        </div>
       </div>
     </>
   );
@@ -63,15 +88,31 @@ interface ParamsType {
 }
 
 export const getServerSideProps = async ({ params }: ParamsType) => {
-  const LIVE_SERVER =
-    "https://us-central1-impowered-funnel.cloudfunctions.net/funnel/blogs";
+  const collectionResult = await imPoweredRequest(
+    "POST",
+    "https://us-central1-impowered-funnel.cloudfunctions.net/funnel/blogs/collections",
+    {
+      collection_type: "TRENDING",
+    }
+  );
 
-  const result = await imPoweredRequest("POST", LIVE_SERVER, {
-    blo_uuid: params.id,
-  });
+  const blogResult = await imPoweredRequest(
+    "POST",
+    "https://us-central1-impowered-funnel.cloudfunctions.net/funnel/blogs",
+    {
+      blo_uuid: params.id,
+    }
+  );
 
   let post = null;
+  let posts = [];
+  let size = 0;
 
-  if (result) post = result?.result?.blogs[0];
-  return { props: { post } };
+  if (collectionResult) {
+    posts = collectionResult?.result?.blogs;
+    size = collectionResult?.result?.size;
+  }
+
+  if (blogResult) post = blogResult?.result?.blogs[0];
+  return { props: { posts, post } };
 };
