@@ -116,7 +116,7 @@ const Home: React.FC<Props> = (props) => {
         <NewsHub title="News Analysis" posts={newsAnalysis} />
       </div>
       <div className={styles.container} style={{ marginTop: 35 }}>
-        <ViewMoreButton title="View more in News Analysis" />
+        <ViewMoreButton title="View more in News Analysis" link="/" />
       </div>
 
       <div className={styles.containerLine}></div>

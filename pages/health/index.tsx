@@ -130,7 +130,7 @@ const Health: React.FC<Props> = (props) => {
       </div>
 
       <div className={styles.container}>
-        <ViewMoreButton title="View More in Related News" />
+        <ViewMoreButton title="View More in Related News" link="/health" />
       </div>
     </>
   );

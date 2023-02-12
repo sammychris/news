@@ -4,7 +4,6 @@
   font-style: normal;
   font-weight: 400;
   font-size: 19px;
-  text-align: center;
   letter-spacing: 0.09em;
   background-color: black;
   color: #ebfe00;
@@ -12,6 +11,14 @@
   width: 464px;
   border-radius: 10px;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewMoreNews:hover {
+  background-color: #ebfe00;
+  color: black;
 }
 
 @media only screen and (max-width: 768px) {

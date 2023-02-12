@@ -72,6 +72,10 @@
   color: #ebfe00;
   padding: 10px 20px;
 }
+.shopLink:hover {
+  background-color: #ebfe00;
+  color: black;
+}
 
 .userContainer {
   position: absolute;

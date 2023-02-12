@@ -60,7 +60,7 @@ const Index: React.FC<Props> = (props) => {
         <NewsHub title="Related News" posts={relatedNews} />
       </div>
       <div className={styles.container}>
-        <ViewMoreButton title="View more in Related News" />
+        <ViewMoreButton title="View more in Related News" link="/politics" />
       </div>
 
       <div className={styles.containerLine}></div>
@@ -71,7 +71,7 @@ const Index: React.FC<Props> = (props) => {
           <SmallNewsCardList posts={mostPopular} styleType="popular" />
         </div>
         <div>
-        <Ads posts={mostPopular} />
+          <Ads posts={mostPopular} />
         </div>
       </div>
     </>

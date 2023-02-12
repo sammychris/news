@@ -32,11 +32,13 @@
 .content {
   font-family: "Poppins";
   font-style: normal;
+  color: #000;
 }
 
 @media only screen and (max-width: 768px) {
   .container {
     padding: 20px 10px;
+    margin: 100px auto;
   }
 
   .content h3 {

@@ -6,6 +6,7 @@ import MobileMenu from "./MobileMenu";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import { IoLocationOutline, IoNotificationsOutline } from "react-icons/io5";
 import Image from "next/image";
+import Link from 'next/link';
 
 type Props = {
   isOpen: boolean;
@@ -23,7 +24,9 @@ const Header: React.FC<Props> = ({ isOpen, toggleMenu }) => {
         </div>
         <div className={styles.headerContent}>
           <div className={styles.logoContainer}>
+            <Link href="/">
             <Image width={200} height={38} src="/images/logo.png" alt="logo" />
+            </Link>
           </div>
           <div className={styles.navContainer}>
             <Menu />
