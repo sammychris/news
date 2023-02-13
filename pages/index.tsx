@@ -93,7 +93,7 @@ const Home: React.FC<Props> = (props) => {
         </div>
       </div>
 
-      <div className={styles.container}>
+      <div className={styles.container} style={{ alignItems: "center" }}>
         <div className={styles.leftSide}>
           <div className={styles.tweeterFeeds}>
             <Tweet tweetId="841418541026877441" />
