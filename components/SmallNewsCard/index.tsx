@@ -46,7 +46,7 @@ const SmallNewsCard: React.FC<Props> = ({
         </h4>
         <h4 className={styles.info}>
           <span className={styles.author}>{author}</span>
-          <span className={styles.date}> / {date}</span>
+          <span className={styles.date}> {date}</span>
         </h4>
       </div>
     </article>
