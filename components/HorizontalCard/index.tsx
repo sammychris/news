@@ -10,6 +10,8 @@ interface Props {
   text: string;
   image: string;
   video: string;
+  author: string;
+  date: string;
 }
 const HorizontalCard: React.FC<Props> = ({
   link,
@@ -17,6 +19,8 @@ const HorizontalCard: React.FC<Props> = ({
   text,
   image,
   video,
+  author,
+  date,
 }) => {
   return (
     <article className={styles.artitle}>
@@ -43,7 +47,7 @@ const HorizontalCard: React.FC<Props> = ({
         <p>{shortenText(text, 200)}</p>
 
         <p className={styles.info}>
-          <span>Samuel Christopher / </span> FEB 1
+          <span>{author} </span> {date}
         </p>
       </div>
     </article>

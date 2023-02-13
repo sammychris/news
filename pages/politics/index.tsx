@@ -83,6 +83,8 @@ const Politics: React.FC<Props> = (props) => {
                 text={post.sections[0].text}
                 video={vid_header}
                 key={post.id}
+                author={post.author}
+                date={post.published_date}
               />
             );
           })}
@@ -118,6 +120,8 @@ const Politics: React.FC<Props> = (props) => {
                 text={post.sections[0].text}
                 video={vid_header}
                 key={post.id}
+                author={post.author}
+                date={post.published_date}
               />
             );
           })}
