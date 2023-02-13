@@ -10,6 +10,8 @@ type SectionProps = {
 };
 
 type PostProps = {
+  author: string;
+  published_date: string;
   id: string;
   title: string;
   sub_title: string;
@@ -26,6 +28,7 @@ interface Props {
 
 const SmallNewsCardList: React.FC<Props> = ({ posts, styleType }) => {
   // const TITTLE = title?.toUpperCase();
+  console.log(posts);
   return (
     <div className={styles.collections}>
       {posts?.map((post: PostProps) => {
@@ -55,6 +58,8 @@ const SmallNewsCardList: React.FC<Props> = ({ posts, styleType }) => {
               title={title}
               video={vid_header}
               key={post.id}
+              author={post.author}
+              date={post.published_date}
             />
             {post !== posts[posts.length - 1] ? (
               <div

@@ -15,6 +15,8 @@ type PostProps = {
   sub_title: string;
   sections: Array<SectionProps>;
   collection: string;
+  author: string;
+  published_date: string;
 };
 
 interface Props {
@@ -56,6 +58,8 @@ const NewsHub: React.FC<Props> = ({ title, posts }) => {
               title={title}
               video={vid_header}
               key={post.id}
+              author={post.author}
+              date={post.published_date}
             />
           );
         })}

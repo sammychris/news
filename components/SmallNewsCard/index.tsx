@@ -10,9 +10,18 @@ interface Props {
   title: string;
   image: string;
   video: string;
+  author: string;
+  date: string;
 }
 
-const SmallNewsCard: React.FC<Props> = ({ link, title, image, video }) => {
+const SmallNewsCard: React.FC<Props> = ({
+  link,
+  title,
+  image,
+  video,
+  author,
+  date,
+}) => {
   return (
     <article className={styles.artitle}>
       <div className={styles.media}>
@@ -36,8 +45,8 @@ const SmallNewsCard: React.FC<Props> = ({ link, title, image, video }) => {
           <Link href={link}>{shortenText(title, 100)}</Link>
         </h4>
         <h4 className={styles.info}>
-          <span className={styles.author}>Samuel Christopher</span>
-          <span className={styles.date}> / JAN 20</span>
+          <span className={styles.author}>{author}</span>
+          <span className={styles.date}> / {date}</span>
         </h4>
       </div>
     </article>
