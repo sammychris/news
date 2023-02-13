@@ -77,7 +77,7 @@ const Home: React.FC<Props> = (props) => {
                   `"As the saying goes personnel is policy," Trump continued, "and at the end of the day, if we have pink-haired communists teaching our kids, we have a major problem."
 `}
                 <span>
-                  {`${breakingNews?.author} / ${breakingNews?.published_date}`}
+                  {`${breakingNews?.author} ${breakingNews?.published_date}`}
                 </span>
               </p>
               <div className={styles.line} style={{ marginTop: 40 }}></div>
