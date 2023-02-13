@@ -4,7 +4,7 @@ import { GetServerSideProps } from "next";
 import { imPoweredRequest } from "../../utils/api-request";
 import styles from "../../styles/Home.module.css";
 import Loader from "@/components/Loader";
-import Ads from "@/components/Ads";
+import Ads, { getAdsProps } from "@/components/Ads";
 import SignUpForm from "@/components/SignUpForm";
 import NewsHub from "@/components/NewsHub";
 import ViewMoreButton from "@/components/ViewMoreButton";
@@ -31,6 +31,7 @@ type PostProps = {
 };
 
 interface Props {
+  trendingPosts: Array<PostProps>;
   posts: Array<PostProps>;
   size: number;
 }
@@ -87,7 +88,7 @@ const Trending: React.FC<Props> = (props) => {
           })}
         </div>
         <div className={styles.rightSide}>
-          <Ads posts={posts1} />
+          <Ads posts={props?.trendingPosts} />
         </div>
       </div>
 
@@ -138,7 +139,9 @@ const Trending: React.FC<Props> = (props) => {
 
 export default Trending;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  let adsProps = await getAdsProps();
+
   const LIVE_SERVER =
     "https://us-central1-impowered-funnel.cloudfunctions.net/funnel/blogs/collections";
 
@@ -148,10 +151,15 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   let posts = [];
   let size = 0;
+  let trendingPosts = [];
 
   if (result) {
     posts = result?.result?.blogs;
     size = result?.result?.size;
+    trendingPosts = adsProps.props.posts;
   }
-  return { props: { size, posts } };
+
+  return {
+    props: { size, posts, trendingPosts },
+  };
 };

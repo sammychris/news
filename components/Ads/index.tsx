@@ -1,9 +1,11 @@
 import React from "react";
+import { GetServerSideProps } from "next";
 import styles from "./Ads.module.css";
 import Link from "next/link";
 import VideoThumbnail from "../VideoThumbnail";
 import Image from "next/image";
 import { shortenText } from "@/utils/shorten-text";
+import { imPoweredRequest } from "@/utils/api-request";
 
 type SectionProps = {
   type: string;
@@ -23,10 +25,16 @@ interface Props {
   posts: Array<PostProps>;
 }
 
-const Ads: React.FC<Props> = ({ posts }) => {
+const Ads: React.FC<Props> = (props) => {
+  console.log({ props }, "Trending");
+  const posts = props?.posts?.slice(0, 4);
   return (
     <div className={styles.container}>
       <h2>Trending</h2>
+      <div className={styles.sponsor}>
+        <span>Ads By </span>
+        <Image src="/images/bigly-logo.png" width={50} height={30} alt="" />
+      </div>
       <ul>
         {posts?.map((post: PostProps) => {
           let img_header = "";
@@ -91,3 +99,22 @@ const Ads: React.FC<Props> = ({ posts }) => {
 };
 
 export default Ads;
+
+export const getAdsProps = async () => {
+  const LIVE_TRENDS =
+    "https://us-central1-impowered-funnel.cloudfunctions.net/funnel/blogs/collections";
+
+  const result = await imPoweredRequest("POST", LIVE_TRENDS, {
+    collection_type: "TRENDING",
+  });
+
+  let posts = [];
+  let size = 0;
+
+  if (result) {
+    posts = result?.result?.blogs;
+    size = result?.result?.size;
+  }
+
+  return { props: { size, posts } };
+};

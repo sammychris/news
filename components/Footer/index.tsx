@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
@@ -6,36 +7,39 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.footerContent}>
         <div>
-          <h2>POPULI PRESS</h2>
-          <ul>
+          <Link href="/">
+            <h2></h2>
+          </Link>
+
+          {/* <ul>
             <li>Twitter</li>
             <li>Tiktok</li>
             <li>Instagram</li>
             <li>Youtube</li>
-          </ul>
+          </ul> */}
         </div>
         <div>
           <h3>Costumer Service</h3>
-          <ul>
+          {/* <ul>
             <li>Contact Us</li>
             <li>Live Chat</li>
-          </ul>
+          </ul> */}
         </div>
         <div>
           <h3>Terms of Use</h3>
-          <ul>
+          {/* <ul>
             <li>Privacy Policy</li>
             <li>Terms of Use</li>
             <li>Cookie Policy</li>
-          </ul>
+          </ul> */}
         </div>
         <div>
           <h3>Company</h3>
-          <ul>
+          {/* <ul>
             <li>About Us</li>
             <li>Ethical Journalism Policy</li>
             <li>Cookie Policy</li>
-          </ul>
+          </ul> */}
         </div>
       </div>
       <div className={styles.copy}>

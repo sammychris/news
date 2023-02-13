@@ -19,7 +19,7 @@
   width: 30%;
 }
 
-.footerContent div ul { 
+.footerContent div ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -43,6 +43,13 @@
   font-size: 70px;
   line-height: 74px;
   color: #454b1b;
+  background-image: url("/images/footer-logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 340px;
+  height: 60px;
+  margin: auto;
 }
 
 .footerContent h3 {

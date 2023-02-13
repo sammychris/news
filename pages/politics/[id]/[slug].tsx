@@ -6,7 +6,7 @@ import Loader from "@/components/Loader";
 import NewsHub from "@/components/NewsHub";
 import ViewMoreButton from "@/components/ViewMoreButton";
 import SmallNewsCardList from "@/components/SmallNewsCardList";
-import Ads from "@/components/Ads";
+import Ads, { getAdsProps } from "@/components/Ads";
 
 type SectionProps = {
   type: string;
@@ -31,6 +31,7 @@ type PostProps = {
 };
 
 interface Props {
+  trendingPosts: Array<PostProps>;
   post: PostProps;
   posts: Array<PostProps>;
 }
@@ -71,7 +72,7 @@ const Index: React.FC<Props> = (props) => {
           <SmallNewsCardList posts={mostPopular} styleType="popular" />
         </div>
         <div>
-          <Ads posts={mostPopular} />
+          <Ads posts={props.trendingPosts} />
         </div>
       </div>
     </>
@@ -88,6 +89,8 @@ interface ParamsType {
 }
 
 export const getServerSideProps = async ({ params }: ParamsType) => {
+  let adsProps = await getAdsProps();
+
   const collectionResult = await imPoweredRequest(
     "POST",
     "https://us-central1-impowered-funnel.cloudfunctions.net/funnel/blogs/collections",

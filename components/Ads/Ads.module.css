@@ -7,6 +7,7 @@
   max-width: 550px;
   width: 100%;
   border-radius: 5px;
+  position: relative;
 }
 
 .ads {
@@ -21,6 +22,18 @@
 }
 .container ul li {
   list-style: none;
+}
+
+.sponsor {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+  display: flex;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .media {

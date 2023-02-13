@@ -34,11 +34,14 @@ type PostProps = {
 
 interface Props {
   posts: Array<PostProps>;
+  trendPosts: Array<PostProps>;
   size: number;
 }
 
 const Home: React.FC<Props> = (props) => {
+  const trendingPosts = props?.trendPosts?.slice(0, 4);
   const posts = props?.posts;
+
   const breakingNews = posts?.slice(0, 1)[0];
   const topNews = posts?.slice(0, 4);
   const mostPopular = posts?.slice(4, 8);
@@ -105,8 +108,11 @@ const Home: React.FC<Props> = (props) => {
             />
           </div>
         </div>
-        <div className={styles.rightSide}>
-          <Ads posts={mostPopular} />
+        <div
+          className={styles.rightSide}
+          style={{ display: "block", width: "unset" }}
+        >
+          <Ads posts={trendingPosts} />
         </div>
       </div>
 
@@ -144,12 +150,25 @@ export const getServerSideProps: GetServerSideProps = async () => {
     blo_uuid: "",
   });
 
+  const LIVE_TRENDS =
+    "https://us-central1-impowered-funnel.cloudfunctions.net/funnel/blogs/collections";
+
+  const trendResult = await imPoweredRequest("POST", LIVE_TRENDS, {
+    collection_type: "TRENDING",
+  });
+
   let posts = [];
+  let trendPosts = [];
   let size = 0;
 
   if (result) {
     posts = result?.result?.blogs;
     size = result?.result?.size;
   }
-  return { props: { size, posts } };
+
+  if (trendResult) {
+    trendPosts = trendResult?.result?.blogs;
+  }
+
+  return { props: { size, posts, trendPosts } };
 };
