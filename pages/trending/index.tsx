@@ -40,7 +40,7 @@ const Trending: React.FC<Props> = (props) => {
   const { size, posts } = props;
   if (!props?.posts.length) return <Loader />;
   const posts1 = posts.slice(0, 3);
-  const posts2 = posts.slice(3, 6);
+  const posts2 = posts.slice(3, 9);
   return (
     <>
       <div className={styles.collectionHeaderBG}>
@@ -127,7 +127,7 @@ const Trending: React.FC<Props> = (props) => {
         </div>
       </div>
       <div className={styles.container}>
-        <NewsHub title="Related News" posts={posts} />
+        <NewsHub title="Related News" posts={posts2} />
       </div>
 
       <div className={styles.container}>
